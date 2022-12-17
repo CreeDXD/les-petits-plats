@@ -1,59 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/7001e26a35.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Document</title>    
 </head>
 
 <body>
-    <header>
-        <img src="#" alt="logo hat chef">
-        <h1>Les petits plats</h1>
-    </header>
+    <div class="main">
+        <header>
+            <img src="/assets/chapeau_chef.png" alt="logo hat chef">
+            <h1>Les petits plats</h1>
+        </header>
 
-    <section class="recherche">
-        <div class="rechercher_principale">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search">
-        </div>
-        <div class="petit_filtre_container">
-            <div class="petit_filtre">
-                <p>Coco</p>
-                <i class="fa-regular fa-circle-xmark"></i>
+        <section class="recherche container_space">
+            <div class="recherche_principale">
+                <input type="search" class="element_space">
+                <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-        </div>
-        <div class="filtre_container">
-            <div class="filtre">
-                <p>ingredient</p>
-                <i class="fa-solid fa-chevron-up"></i>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-        </div>
-    </section>
-    <section class="recettes_container">
-        <article class="recette">
-            <div class="recette_entete">
-                <h2>poisson cru a la tahitienne</h2>
-                <i class="fa-regular fa-clock"></i>
-            </div>
-            <div class="recette_info_ingredient">
-                <div class="recette_ingredient">
-                    <ul>
-                        <li>thon Rouge :200g</li>
-                        <li>concombre : 1</li>
-                        <li>tomate : 2</li>
-                    </ul>
+            
+            <div class="petit_filtre_container element_space">
+                <div class="petit_filtre display_flex_row">
+                    <p>Coco</p>
+                    <i class="fa-regular fa-circle-xmark"></i>
                 </div>
-                <div class="recette_info">
-                    <p>Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2...</p>
-                </div>
-                
             </div>
-        </article>
-    </section>
+            <div class="filtre_container element_space display_flex_row">
+                <div class="filtre display_flex_row">
+                    <input type="search" placeholder="ingrediant">
+                    <i class="fa-solid fa-chevron-up"></i>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="filtre display_flex_row">
+                    <input type="search" placeholder="appareils">
+                    <i class="fa-solid fa-chevron-up"></i>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+        </section>
+
+        <section class="recettes_container">
+            <article class="recette">
+                <div class="recette_entete display_flex_row">
+                    <h2>poisson cru a la tahitienne</h2>
+                    <div class="recette_entete_time display_flex_row">
+                        <i class="fa-regular fa-clock"></i>
+                        <p>10 min</p>
+                    </div>
+                    
+                </div>
+                <div class="recette_info_ingredient display_flex_row">
+                    <div class="recette_ingredient">
+                        <ul>
+                            <li>thon Rouge :200g</li>
+                            <li>concombre :1</li>
+                            <li>tomate :2</li>
+                        </ul>
+                    </div>
+                    <div class="recette_info">
+                        <p>Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2...</p>
+                    </div>                
+                </div>
+            </article>
+        </section>
+    </div>
 </body>
 </html>

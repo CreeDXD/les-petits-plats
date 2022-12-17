@@ -1,0 +1,1 @@
+<!-- projet 7 openclassrooms: Développez un algorithme de recherche en JavaScript -->
