@@ -16,35 +16,55 @@
             <img src="/assets/chapeau_chef.png" alt="logo hat chef">
             <h1>Les petits plats</h1>
         </header>
-
+        <!-- section recherche -->
         <section class="recherche container_space">
+            <!-- barre de recherche principale -->
             <div class="recherche_principale">
                 <input type="search" class="element_space">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            
+            <!-- les filtres selectionné -->
             <div class="petit_filtre_container element_space">
                 <div class="petit_filtre display_flex_row">
                     <p>Coco</p>
                     <i class="fa-regular fa-circle-xmark"></i>
                 </div>
             </div>
+            <!-- les 3 differents types de filtres -->
             <div class="filtre_container element_space display_flex_row">
-                <div class="filtre display_flex_row">
-                    <input type="search" placeholder="ingrediant">
-                    <i class="fa-solid fa-chevron-up"></i>
-                    <i class="fa-solid fa-chevron-down"></i>
+                <div class="filtres_options">
+                    <div class="filtre display_flex_row">
+                        <input type="search" placeholder="ingrediant">
+                        <i class="fa-solid fa-chevron-up"></i>
+                        <i class="fa-solid fa-chevron-down"></i>                    
+                    </div>
+                    <ul>
+                        <li>lait de coco</li>
+                        <li>sucre</li>
+                        <li>concombre</li>
+                    </ul>
                 </div>
-                <div class="filtre display_flex_row">
-                    <input type="search" placeholder="appareils">
-                    <i class="fa-solid fa-chevron-up"></i>
-                    <i class="fa-solid fa-chevron-down"></i>
+                <div class="filtres_options">
+                    <div class="filtre display_flex_row">
+                        <input type="search" placeholder="appareils">
+                        <i class="fa-solid fa-chevron-up"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div> 
+                <div class="filtres_options">
+                    <div class="filtre display_flex_row">
+                        <input type="search" placeholder="ustensiles">
+                        <i class="fa-solid fa-chevron-up"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- section cartes recettes -->
         <section class="recettes_container">
             <article class="recette">
+                <img src="#" alt="fond_gris">
                 <div class="recette_entete display_flex_row">
                     <h2>poisson cru a la tahitienne</h2>
                     <div class="recette_entete_time display_flex_row">
@@ -68,5 +88,8 @@
             </article>
         </section>
     </div>
+    <script src="/scripts/data/recipes.js"></script>
+    <script src="/scripts/app/App.js"></script>
+
 </body>
 </html>

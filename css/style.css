@@ -30,19 +30,46 @@ header img{
 .recherche_principale input[type="search"] {
     width: 100%;
 }
-  .recherche_principale i {
+.recherche_principale i {
     position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-  }
+}
+.filtre_container{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
 
-  .container_space{
+.filtre{
+    position: relative;
+    width: 150px;
+}
+.filtre input[type="search"] {
+    width: 100%;
+}
+.filtre i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.filtre .fa-chevron-up{
+    display: none;
+}
+
+.container_space{
     margin-top:20px;
     margin-bottom: 20px;
-  }
+}
 
-  .element_space{
+.element_space{
     margin-top:8px;
     margin-bottom: 8px;
-  }
+}
+
+.recette{
+    width: 30%;
+}
