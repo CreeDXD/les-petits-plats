@@ -1,52 +1,99 @@
 class App {
-    static init(){
-
-    }
     
     constructor() {
+        this.filterWrapperIngredient = document.querySelector('.ingredients')
+        this.filterWrapperAppareils = document.querySelector('.appareils')
+        this.filterWrapperUstensiles = document.querySelector('.ustensiles')
         
-       console.log(this.tabApplience())
-        // tabMedia.forEach(
-        //     element => {
-        //         // affichage des medias (image et vidéo)
-        //         const selectedMedia = new Media(element)
-        //         const Template = new MediaCard(selectedMedia)
-        //         this.$mediaWrapper.appendChild(Template.createMediaCard())
-        //     }
-        // )
-              
     }
 
-    tabApplience(){
+    filter(){
+        // affichage des ingredient dans le filtre ingredient
+        const tabIngredient = this.tabIngredient()
+        let wrapperUlIngredient = document.createElement('ul')
+        wrapperUlIngredient.setAttribute('class','ul_filtres')
+        this.filterWrapperIngredient.appendChild(wrapperUlIngredient)
+        tabIngredient.forEach(element => {
+            let data = new Filtres_Model(element)
+            let Template = new FilterCard(data)            
+            wrapperUlIngredient.appendChild(Template.createFilterCard())
+        })     
+        
+        // affichage des appareils dans le filtre appareils Appareil
+        const tabAppareil = this.tabAppareil()
+        let wrapperUlAppareil = document.createElement('ul')
+        wrapperUlAppareil.setAttribute('class','ul_filtres')
+        this.filterWrapperAppareils.appendChild(wrapperUlAppareil)
+        tabAppareil.forEach(element => {
+            let data = new Filtres_Model(element)
+            let Template = new FilterCard(data)            
+            wrapperUlAppareil.appendChild(Template.createFilterCard())
+        }) 
+
+        // affichage des ustensiles dans le filtre ustensiles
+        const tabUstensile = this.tabUstensile()
+        let wrapperUlUstensile = document.createElement('ul')
+        wrapperUlUstensile.setAttribute('class','ul_filtres')
+        this.filterWrapperUstensiles.appendChild(wrapperUlUstensile)
+        tabUstensile.forEach(element => {
+            let data = new Filtres_Model(element)
+            let Template = new FilterCard(data)            
+            wrapperUlUstensile.appendChild(Template.createFilterCard())
+        })    
+    }
+
+    tabIngredient(){
         let tab =[]
         let compt = 0
         let filteredTab
         recipes.forEach(element => {
-            
             element.ingredients.forEach(e => {
                 tab[compt] = e.ingredient
                 compt++
             })
             filteredTab = tab.filter(
-                (ele, index) => tab.indexOf(ele) === index
+                (ele, index) => tab.indexOf(ele) == index
             );
 
         })
-        const similarElements = filteredTab.filter(element1 => {
-            return filteredTab.some(element2 => {
-              // utilisez la méthode split() pour séparer les chaînes en tableaux de caractères
-              const chars1 = element1.split("");
-              const chars2 = element2.split("");
-              // utilisez la méthode reduce() pour compter le nombre de différences entre les tableaux de caractères
-              const differenceCount = chars1.reduce((acc, char, index) => {
-                return char === chars2[index] ? acc : acc + 1;
-              }, 0);
-              // retournez vrai si le nombre de différences est égal à 1
-              return differenceCount === 1;
-            });
-          });
-        return similarElements
+        
+        return filteredTab.sort()
     }
+
+    tabAppareil(){
+        let tab = []
+        let compt = 0
+        let filteredTab
+        recipes.forEach(element => {
+            tab[compt] = element.appliance
+            compt++
+            
+            filteredTab = tab.filter(
+                (ele, index) => tab.indexOf(ele) == index
+            );
+
+        })
+        return filteredTab.sort()
+    }
+
+    tabUstensile(){
+        let tab =[]
+        let compt = 0
+        let filteredTab
+        recipes.forEach(element => {
+            element.ustensils.forEach(e => {
+                tab[compt] = e
+                compt++
+            })
+            filteredTab = tab.filter(
+                (ele, index) => tab.indexOf(ele) == index
+            );
+
+        })
+        
+        return filteredTab.sort()
+    }
+
+    
     
 }
-const app = new App()

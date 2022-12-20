@@ -32,26 +32,22 @@
             </div>
             <!-- les 3 differents types de filtres -->
             <div class="filtre_container element_space display_flex_row">
-                <div class="filtres_options">
+                <div class="filtres_options ingredients">
                     <div class="filtre display_flex_row">
-                        <input type="search" placeholder="ingrediant">
+                        <input type="search" placeholder="ingredient">
                         <i class="fa-solid fa-chevron-up"></i>
                         <i class="fa-solid fa-chevron-down"></i>                    
                     </div>
-                    <ul>
-                        <li>lait de coco</li>
-                        <li>sucre</li>
-                        <li>concombre</li>
-                    </ul>
+                    
                 </div>
-                <div class="filtres_options">
+                <div class="filtres_options appareils">
                     <div class="filtre display_flex_row">
                         <input type="search" placeholder="appareils">
                         <i class="fa-solid fa-chevron-up"></i>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                 </div> 
-                <div class="filtres_options">
+                <div class="filtres_options ustensiles">
                     <div class="filtre display_flex_row">
                         <input type="search" placeholder="ustensiles">
                         <i class="fa-solid fa-chevron-up"></i>
@@ -88,8 +84,21 @@
             </article>
         </section>
     </div>
+    <!-- base de données avec les recettes, ingredient ... -->
     <script src="/scripts/data/recipes.js"></script>
+
+    <!-- App  -->
     <script src="/scripts/app/App.js"></script>
+
+    <!-- templets -->
+    <script src="/scripts/templets/FilterCard.js"></script>
+
+    <!-- model -->
+    <script src="/scripts/models/recette_model.js"></script>
+    <script src="/scripts/models/filtres_model.js"></script>
+
+    <!-- init -->
+    <script src="/scripts/app/init.js"></script>
 
 </body>
 </html>

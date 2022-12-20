@@ -34,9 +34,11 @@ class Recette_Model {
     get appliance(){
         return this._appliance
     }
+
     get ingredients(){
         return this._ingredients
     }
+    
     get ustensils(){
         return this._ustensils
     }

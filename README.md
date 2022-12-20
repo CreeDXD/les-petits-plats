@@ -1,9 +1,10 @@
 <!-- projet 7 openclassrooms: Développez un algorithme de recherche en JavaScript -->
 étapes:
 -structures et css
--crées les differentes parties du sites (filtres,recettes,filtres_elements)
+-crées les differentes parties du sites (filtres,recettes,filtres_tags)
     --filtres{
         _tableau des ingrediants en elevant des doublons
+        _modification de recipes.js pour enlever les doublons écris differaments
         _creation de la carte filtres pour les 3 filtres
     } 
 
