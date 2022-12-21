@@ -4,10 +4,11 @@ class App {
         this.filterWrapperIngredient = document.querySelector('.ingredients')
         this.filterWrapperAppareils = document.querySelector('.appareils')
         this.filterWrapperUstensiles = document.querySelector('.ustensiles')
-        
+        this.filterWrapperRecettes = document.querySelector('.recettes_container')
     }
 
     filter(){
+
         // affichage des ingredient dans le filtre ingredient
         const tabIngredient = this.tabIngredient()
         let wrapperUlIngredient = document.createElement('ul')
@@ -40,6 +41,20 @@ class App {
             let Template = new FilterCard(data)            
             wrapperUlUstensile.appendChild(Template.createFilterCard())
         })    
+    }
+
+    recette(){
+
+        // affichage des recette dans la section recette
+        
+        recipes.forEach(element =>{
+            let data = new Recette_Model(element)
+            let dataIngredient = element.ingredients            
+            let Template = new RecetteCard(data,dataIngredient)
+            this.filterWrapperRecettes.appendChild(Template.createRecetteCard())
+            
+        })
+
     }
 
     tabIngredient(){

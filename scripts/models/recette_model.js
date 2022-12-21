@@ -14,7 +14,7 @@ class Recette_Model {
     }
 
     get id(){ 
-        return thid._id
+        return this._id
     }
     get name(){
         return this._name

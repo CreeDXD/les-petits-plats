@@ -59,29 +59,6 @@
 
         <!-- section cartes recettes -->
         <section class="recettes_container">
-            <article class="recette">
-                <img src="#" alt="fond_gris">
-                <div class="recette_entete display_flex_row">
-                    <h2>poisson cru a la tahitienne</h2>
-                    <div class="recette_entete_time display_flex_row">
-                        <i class="fa-regular fa-clock"></i>
-                        <p>10 min</p>
-                    </div>
-                    
-                </div>
-                <div class="recette_info_ingredient display_flex_row">
-                    <div class="recette_ingredient">
-                        <ul>
-                            <li>thon Rouge :200g</li>
-                            <li>concombre :1</li>
-                            <li>tomate :2</li>
-                        </ul>
-                    </div>
-                    <div class="recette_info">
-                        <p>Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2...</p>
-                    </div>                
-                </div>
-            </article>
         </section>
     </div>
     <!-- base de données avec les recettes, ingredient ... -->
@@ -92,10 +69,13 @@
 
     <!-- templets -->
     <script src="/scripts/templets/FilterCard.js"></script>
+    <script src="/scripts/templets/RecetteCard.js"></script>
+    <script src="/scripts/templets/IngredientRecetteCard.js"></script>
 
     <!-- model -->
     <script src="/scripts/models/recette_model.js"></script>
     <script src="/scripts/models/filtres_model.js"></script>
+    <script src="/scripts/models/ingredientsRecette_model.js"></script>
 
     <!-- init -->
     <script src="/scripts/app/init.js"></script>

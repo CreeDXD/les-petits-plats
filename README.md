@@ -14,3 +14,5 @@
 -crées l'algo 2 et l'implémenter  {
     programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce)
 }
+
+<!-- ou j'en suis: j'essaye d'afficher les differents element dans ingredentsRecette_model -->
