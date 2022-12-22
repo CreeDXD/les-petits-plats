@@ -4,7 +4,6 @@ class RecetteIngredientCard {
         this._ingredient = data.ingredient
         this._quantity = data.quantity
         this._unit = data.unit
-
     }
 
     createRecetteIngredientCard() {
@@ -22,6 +21,9 @@ class RecetteIngredientCard {
 
 
         if(this._unit != undefined){
+            if(this._unit == 'grammes'){
+                this._unit = 'g'
+            }
             containerIngredient.textContent += this._unit
         }
         return $wrapper

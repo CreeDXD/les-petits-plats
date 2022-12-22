@@ -6,6 +6,7 @@
         _tableau des ingrediants en elevant des doublons
         _modification de recipes.js pour enlever les doublons écris differaments
         _creation de la carte filtres pour les 3 filtres
+        _affichage de toute les recettes
     } 
 
 -crées l'algo 1 et l'implémenter{
@@ -15,4 +16,4 @@
     programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce)
 }
 
-<!-- ou j'en suis: j'essaye d'afficher les differents element dans ingredentsRecette_model -->
+<!-- ou j'en suis: cree le css pour les cartes recettes -->

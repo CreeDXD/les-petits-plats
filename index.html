@@ -5,7 +5,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap" 
+        rel="stylesheet"
+    >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,15 +26,21 @@
         <section class="recherche container_space">
             <!-- barre de recherche principale -->
             <div class="recherche_principale">
-                <input type="search" class="element_space">
+                <input 
+                    type="search" 
+                    class="element_space input_search_principal" 
+                    placeholder="Recherche une recette"
+                    search-cancel-button
+                >
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <!-- les filtres selectionné -->
-            <div class="petit_filtre_container element_space">
+            <div class="petit_filtre_container element_space display_flex_row">
                 <div class="petit_filtre display_flex_row">
                     <p>Coco</p>
                     <i class="fa-regular fa-circle-xmark"></i>
                 </div>
+                
             </div>
             <!-- les 3 differents types de filtres -->
             <div class="filtre_container element_space display_flex_row">
