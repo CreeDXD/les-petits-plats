@@ -40,7 +40,9 @@ class App {
             let data = new Filtres_Model(element)
             let Template = new FilterCard(data)            
             wrapperUlUstensile.appendChild(Template.createFilterCard())
-        })    
+        })  
+        algoRecherche.init()
+        
     }
 
     recette(){
@@ -109,6 +111,7 @@ class App {
         return filteredTab.sort()
     }
 
+    
     
     
 }

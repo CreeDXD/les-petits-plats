@@ -26,18 +26,20 @@ class RecetteCard{
         containerRecette_info_ingredient.setAttribute('class','recette_info_ingredient display_flex_row')
         let containerRecette_ingredient = document.createElement('div')
         containerRecette_ingredient.setAttribute('class','recette_ingredient')
+        let containerRecette_ingredientUl = document.createElement('ul')
         let containerRecette_info = document.createElement('div')
         containerRecette_info.setAttribute('class','recette_info')
         let contentRecette_info = document.createElement('p')
         contentRecette_info.textContent = this.description
 
+        containerRecette_ingredient.appendChild(containerRecette_ingredientUl)
         containerRecette_info.appendChild(contentRecette_info)
         containerRecette_info_ingredient.appendChild(containerRecette_ingredient)
         containerRecette_info_ingredient.appendChild(containerRecette_info)
 
         this.dataIngredient.forEach(element => {
             let Template = new RecetteIngredientCard(element)
-            containerRecette_ingredient.appendChild(Template.createRecetteIngredientCard())
+            containerRecette_ingredientUl.appendChild(Template.createRecetteIngredientCard())
         })
         $wrapper.appendChild(containerRecette_info_ingredient)
         return $wrapper

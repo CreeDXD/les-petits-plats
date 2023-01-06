@@ -7,11 +7,10 @@ class RecetteIngredientCard {
     }
 
     createRecetteIngredientCard() {
-        const $wrapper = document.createElement('ul')
         let containerIngredient = document.createElement('li')
+        containerIngredient.setAttribute('name',this._ingredient)
         containerIngredient.innerHTML = this._ingredient
                     
-        $wrapper.appendChild(containerIngredient)
 
         containerIngredient.textContent += ' '
 
@@ -26,6 +25,6 @@ class RecetteIngredientCard {
             }
             containerIngredient.textContent += this._unit
         }
-        return $wrapper
+        return containerIngredient
     }
 }

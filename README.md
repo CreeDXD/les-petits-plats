@@ -9,11 +9,16 @@
         _affichage de toute les recettes
     } 
 
+prepa-algo:
+-
 -crées l'algo 1 et l'implémenter{
-    les boucles natives (while, for...)
+    --les boucles natives (while, for...)
+    --utiliser regex pour trier les elements à partir du filtre
+    <!-- je ne suis pas sense trier les recettes depuis les inputes filtres  -->
+
 }
 -crées l'algo 2 et l'implémenter  {
     programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce)
 }
 
-<!-- ou j'en suis: cree le css pour les cartes recettes -->
+<!-- Où j'en suis: plus ou moins fini le css (petits problèmes:les cartes recettes on pas toutes les mêmes dimentions et quand on reduit la taille de l'ecran le texte dépasse de la carte) -->
