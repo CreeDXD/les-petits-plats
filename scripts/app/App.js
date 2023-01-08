@@ -45,6 +45,18 @@ class App {
         
     }
 
+    // tentative de fractionner du code
+    // conteneurFiltre(tab, wrapperUl){
+    //     console.log(wrapperUl)         
+
+    //     tab.forEach(element => {
+    //         let data = new Filtres_Model(element)
+    //         let Template = new FilterCard(data)   
+    //         console.log(Template)
+    //         wrapperUl.appendChild(Template.createFilterCard())
+    //     })  
+    // }
+    
     recette(){
 
         // affichage des recette dans la section recette

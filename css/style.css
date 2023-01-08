@@ -125,7 +125,8 @@ input[type="search"] {
 }
 
 .ul_filtres{
-    display: none;
+    /* display: none; */
+    display: grid;
     grid-template-columns: repeat(3, 200px);
     grid-column-gap: 100px;
     grid-row-gap: 5px;
@@ -239,4 +240,8 @@ input[type="search"] {
     padding-right: 10px;
     font-family: 'lato',sans-serif;
     font-weight: 700;
+}
+
+.display_none{
+    display:none;
 }

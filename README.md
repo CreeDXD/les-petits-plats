@@ -21,4 +21,12 @@ prepa-algo:
     programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce)
 }
 
-<!-- Où j'en suis: plus ou moins fini le css (petits problèmes:les cartes recettes on pas toutes les mêmes dimentions et quand on reduit la taille de l'ecran le texte dépasse de la carte) -->
+<!-- Où j'en suis: plus ou moins fini le css (petits problèmes:
+    -les cartes recettes on pas toutes les mêmes dimentions
+    - quand on reduit la taille de l'ecran le texte dépasse de la carte
+    
+) 
+algo recherche principale mettre à jour les filtres
+-->
+
+<!-- Question: -->
