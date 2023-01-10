@@ -56,7 +56,21 @@ class App {
     //         wrapperUl.appendChild(Template.createFilterCard())
     //     })  
     // }
-    
+
+    majFiltres(){
+        let infofiltreIngredients = '.ingredients'
+        let infofiltreAppareils = '.appareils'
+        let infofiltreUstensils = '.ustensiles'
+        let filtreIngredientInput  = document.querySelector('.ingredient_input')
+        let filtreAppareilInput  = document.querySelector('.appareils_input')
+        let filtreUstensilInput  = document.querySelector('.ustensils_input')
+        new algoRechercheFiltre(this.tabIngredient(),filtreIngredientInput,infofiltreIngredients)
+        new algoRechercheFiltre(this.tabAppareil(),filtreAppareilInput,infofiltreAppareils)
+        new algoRechercheFiltre(this.tabUstensile(),filtreUstensilInput,infofiltreUstensils)
+
+        // algoRechercheFiltre.init(this.tabIngredient(),this.tabAppareil(),this.tabUstensile())
+    }
+
     recette(){
 
         // affichage des recette dans la section recette

@@ -29,4 +29,7 @@ prepa-algo:
 algo recherche principale mettre à jour les filtres
 -->
 
-<!-- Question: -->
+<!-- Question: 
+    --est-ce que j'ai le droit de mettre des infos caché pour les utilisés en js après
+    --est-ce que je peux utilisé index et sort pour trier mon tableau
+-->

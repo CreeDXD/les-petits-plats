@@ -14,9 +14,9 @@ class algoRecherche{
         this.filterWrapperAppareil = document.querySelector('.appareils')
         this.filterWrapperUstensils = document.querySelector('.ustensiles')
         this.algoRecherchePrincipale(filtrePrincipaleValue)
-        this.algoRechercheFiltreIngredients()
-        this.algoRechercheFiltreAppareils()
-        this.algoRechercheFiltreUstensils()
+        this.algoRechercheMajFiltreIngredients()
+        this.algoRechercheMajFiltreAppareils()
+        this.algoRechercheMajFiltreUstensils()
     }
 
     algoRecherchePrincipale(filtrePrincipaleValue){
@@ -67,7 +67,7 @@ class algoRecherche{
     }
 
     // algo pour mettre à jour les filtres ingredients appareils et ustensils
-    algoRechercheFiltreIngredients(){  
+    algoRechercheMajFiltreIngredients(){  
         
         //on cree le tableau des ingredients
         let ingredientsElement = document.querySelectorAll('.recette_ingredient > ul >li ')
@@ -91,7 +91,7 @@ class algoRecherche{
         }
     }
 
-    algoRechercheFiltreAppareils(){  
+    algoRechercheMajFiltreAppareils(){  
         
         //on cree le tableau des appareils
         let appareilsElement = document.querySelectorAll('.appliance_info')
@@ -116,14 +116,13 @@ class algoRecherche{
         }
     }
 
-    algoRechercheFiltreUstensils(){  
+    algoRechercheMajFiltreUstensils(){  
         
         //on cree le tableau des appareils
         let ustensilsElement = document.querySelectorAll('.ustensils_info > p')
         let tabUstensils = []
         let i = 0
         for(const element of ustensilsElement){
-            console.log(element.innerHTML)
             tabUstensils[i] = element.innerHTML
             i++
         }
