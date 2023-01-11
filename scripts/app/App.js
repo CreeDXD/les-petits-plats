@@ -5,70 +5,62 @@ class App {
         this.filterWrapperAppareils = document.querySelector('.appareils')
         this.filterWrapperUstensiles = document.querySelector('.ustensiles')
         this.filterWrapperRecettes = document.querySelector('.recettes_container')
+
+        this.infoIngredients = '.ingredients'
+        this.infoAppareils = '.appareils'
+        this.infoUstensils = '.ustensiles'
+        
     }
 
     filter(){
+        // affichage des ingredient, des appareils et des ustensils dans les filtres
 
-        // affichage des ingredient dans le filtre ingredient
-        const tabIngredient = this.tabIngredient()
-        let wrapperUlIngredient = document.createElement('ul')
-        wrapperUlIngredient.setAttribute('class','ul_filtres')
-        this.filterWrapperIngredient.appendChild(wrapperUlIngredient)
-        tabIngredient.forEach(element => {
-            let data = new Filtres_Model(element)
-            let Template = new FilterCard(data)            
-            wrapperUlIngredient.appendChild(Template.createFilterCard())
-        })     
-        
-        // affichage des appareils dans le filtre appareils Appareil
-        const tabAppareil = this.tabAppareil()
-        let wrapperUlAppareil = document.createElement('ul')
-        wrapperUlAppareil.setAttribute('class','ul_filtres')
-        this.filterWrapperAppareils.appendChild(wrapperUlAppareil)
-        tabAppareil.forEach(element => {
-            let data = new Filtres_Model(element)
-            let Template = new FilterCard(data)            
-            wrapperUlAppareil.appendChild(Template.createFilterCard())
-        }) 
-
-        // affichage des ustensiles dans le filtre ustensiles
-        const tabUstensile = this.tabUstensile()
-        let wrapperUlUstensile = document.createElement('ul')
-        wrapperUlUstensile.setAttribute('class','ul_filtres')
-        this.filterWrapperUstensiles.appendChild(wrapperUlUstensile)
-        tabUstensile.forEach(element => {
-            let data = new Filtres_Model(element)
-            let Template = new FilterCard(data)            
-            wrapperUlUstensile.appendChild(Template.createFilterCard())
-        })  
+        new filtre(this.tabIngredient(),this.filterWrapperIngredient)
+        new filtre(this.tabAppareil(),this.filterWrapperAppareils)
+        new filtre(this.tabUstensile(),this.filterWrapperUstensiles)
+       
         algoRecherche.init()
-        
+
     }
-
-    // tentative de fractionner du code
-    // conteneurFiltre(tab, wrapperUl){
-    //     console.log(wrapperUl)         
-
-    //     tab.forEach(element => {
-    //         let data = new Filtres_Model(element)
-    //         let Template = new FilterCard(data)   
-    //         console.log(Template)
-    //         wrapperUl.appendChild(Template.createFilterCard())
-    //     })  
-    // }
-
+   
     majFiltres(){
-        let infofiltreIngredients = '.ingredients'
-        let infofiltreAppareils = '.appareils'
-        let infofiltreUstensils = '.ustensiles'
+        
         let filtreIngredientInput  = document.querySelector('.ingredient_input')
         let filtreAppareilInput  = document.querySelector('.appareils_input')
         let filtreUstensilInput  = document.querySelector('.ustensils_input')
-        new algoRechercheFiltre(this.tabIngredient(),filtreIngredientInput,infofiltreIngredients)
-        new algoRechercheFiltre(this.tabAppareil(),filtreAppareilInput,infofiltreAppareils)
-        new algoRechercheFiltre(this.tabUstensile(),filtreUstensilInput,infofiltreUstensils)
 
-        // algoRechercheFiltre.init(this.tabIngredient(),this.tabAppareil(),this.tabUstensile())
+        new algoRechercheFiltre(this.tabIngredient(),filtreIngredientInput,this.infoIngredients)
+        new algoRechercheFiltre(this.tabAppareil(),filtreAppareilInput,this.infoAppareils)
+        new algoRechercheFiltre(this.tabUstensile(),filtreUstensilInput,this.infoUstensils)
+    }
+
+    deroulementfiltre(){
+        
+        
+        this.deroulementUpDown(this.infoIngredients)
+        this.deroulementUpDown(this.infoAppareils)
+        this.deroulementUpDown(this.infoUstensils)    
+    }
+
+    deroulementUpDown(data){
+        const chevronDown = document.querySelector(`${data} .fa-chevron-down`)
+        const chevronUp = document.querySelector(`${data} .fa-chevron-up`)
+        chevronDown.addEventListener('click', e =>{
+
+            let ul_filtres_contener = document.querySelector(`${data} > .ul_filtres_contener`)            
+            ul_filtres_contener.style.display = "block"
+            chevronUp.style.display = "block"
+            chevronDown.style.display = "none"
+
+        })
+        chevronUp.addEventListener('click', e =>{
+            let ul_filtres_contener = document.querySelector(`${data} > .ul_filtres_contener`)            
+
+            ul_filtres_contener.style.display = "none"
+            chevronUp.style.display = "none"
+            chevronDown.style.display = "block"
+
+        })
     }
 
     recette(){

@@ -123,9 +123,11 @@ input[type="search"] {
     background-color: #E7E7E7;
     border-radius: 5px;
 }
+.ul_filtres_contener{
+    display: none;
+}
 
 .ul_filtres{
-    /* display: none; */
     display: grid;
     grid-template-columns: repeat(3, 200px);
     grid-column-gap: 100px;

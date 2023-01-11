@@ -1,7 +1,7 @@
 class algoRecherche{
     static init(){
         let filtrePrincipale  = document.querySelector('.input_search_principal')
-        filtrePrincipale.addEventListener('change', e=>{
+        filtrePrincipale.addEventListener('keyup', e=>{
 
             let filtrePrincipaleValue = filtrePrincipale.value
             new algoRecherche(filtrePrincipaleValue)

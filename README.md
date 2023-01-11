@@ -21,14 +21,17 @@ prepa-algo:
     programmation fonctionnelle avec les méthodes de l'objet array (foreach, filter, map, reduce)
 }
 
-<!-- Où j'en suis: plus ou moins fini le css (petits problèmes:
-    -les cartes recettes on pas toutes les mêmes dimentions
-    - quand on reduit la taille de l'ecran le texte dépasse de la carte
-    
-) 
-algo recherche principale mettre à jour les filtres
+<!-- Où j'en suis: 
+    --déroulement des filtres
+    --algo recherche principale mettre à jour les filtres
+    --plus ou moins fini le css 
 -->
-
+<!-- problèmes:
+    -- quand je déroule filtre et que je commence une recherche le filtre se reenroule
+    --les cartes recettes on pas toutes les mêmes dimentions
+    -- quand on reduit la taille de l'ecran le texte dépasse de la carte
+-->
+ 
 <!-- Question: 
     --est-ce que j'ai le droit de mettre des infos caché pour les utilisés en js après
     --est-ce que je peux utilisé index et sort pour trier mon tableau

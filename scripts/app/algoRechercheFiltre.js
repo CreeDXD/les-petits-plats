@@ -1,18 +1,4 @@
 class algoRechercheFiltre{
-    // static init(tabIngredient,tabAppareil,tabUstensile){
-    //     let filtreIngredient  = document.querySelector('.ingredient_input')
-    //     let filtreAppareil  = document.querySelector('.appareils_intput')
-    //     let filtreUstensils  = document.querySelector('.ustensils_intput')
-    //     let tabfiltre = [filtreIngredient,filtreAppareil,filtreUstensils]
-    //     for(const element of tabfiltre){
-    //         element.addEventListener('keyup', e=>{
-
-    //             let filtreValue = element.value
-    //             new algoRechercheFiltre(filtreValue,tabIngredient,tabAppareil,tabUstensile)
-    //         })
-    //     }
-       
-    // }
 
     constructor(tabfiltre,filtreInput,infofiltre){
         filtreInput.addEventListener('keyup', e=>{
@@ -26,7 +12,8 @@ class algoRechercheFiltre{
     algoRechercheFiltreIngredient(filtreValue,tabfiltre,infofiltre){
        
         //  suppression des ingredients du tableau
-        const filtresElementsToRemove = document.querySelector(`${infofiltre} > .ul_filtres`)
+        const filtresElementsToRemove = document.querySelector(`${infofiltre} > .ul_filtres_contener > .ul_filtres`)
+        console.log(filtresElementsToRemove)
         filtresElementsToRemove.remove()
         
         // creation du tableau des ingredients qui correspond à l'input
@@ -41,9 +28,10 @@ class algoRechercheFiltre{
             }    
         } 
         // affichage des elements du nouveau tableau 
+        let $wrapper = document.querySelector(`${infofiltre} > .ul_filtres_contener`)
+        console.log($wrapper)
         let wrapperUl = document.createElement('ul')
         wrapperUl.setAttribute('class','ul_filtres')
-        let $wrapper = document.querySelector(infofiltre)
         $wrapper.appendChild(wrapperUl)
         for(const element of majTab){
             let data = new Filtres_Model(element)
