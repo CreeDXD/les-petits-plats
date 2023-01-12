@@ -45,6 +45,18 @@ class App {
     deroulementUpDown(data){
         const chevronDown = document.querySelector(`${data} .fa-chevron-down`)
         const chevronUp = document.querySelector(`${data} .fa-chevron-up`)
+        let otherfiltrescontainer = []
+
+        if(data == '.ingredients'){
+            otherfiltrescontainer = ['.appareils','.ustensiles']
+        }
+        else if(data == '.appareils'){
+            otherfiltrescontainer = ['.ingredients','.ustensiles']
+        }
+        else{
+            otherfiltrescontainer = ['.ingredients','.appareils']
+        }
+
         chevronDown.addEventListener('click', e =>{
 
             let ul_filtres_contener = document.querySelector(`${data} > .ul_filtres_contener`)            
@@ -52,10 +64,19 @@ class App {
             chevronUp.style.display = "block"
             chevronDown.style.display = "none"
 
+            for(const element of otherfiltrescontainer){
+                let filtres = document.querySelector(`${element} .ul_filtres_contener`)
+                let otherChevronDown = document.querySelector(`${element} .fa-chevron-down`)
+                let otherChevronUp = document.querySelector(`${element} .fa-chevron-up`)
+                filtres.style.display = "none"
+                otherChevronDown.style.display = "block"
+                otherChevronUp.style.display = "none"
+            }
+
         })
         chevronUp.addEventListener('click', e =>{
-            let ul_filtres_contener = document.querySelector(`${data} > .ul_filtres_contener`)            
 
+            let ul_filtres_contener = document.querySelector(`${data} > .ul_filtres_contener`)            
             ul_filtres_contener.style.display = "none"
             chevronUp.style.display = "none"
             chevronDown.style.display = "block"

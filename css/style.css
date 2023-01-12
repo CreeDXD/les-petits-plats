@@ -130,7 +130,7 @@ input[type="search"] {
 .ul_filtres{
     display: grid;
     grid-template-columns: repeat(3, 200px);
-    grid-column-gap: 100px;
+    grid-column-gap: 20px;
     grid-row-gap: 5px;
 }
 
@@ -142,6 +142,7 @@ input[type="search"] {
 }
 
 .filtres_options{
+    height: 10%;
     margin-right:50px;
     border-radius: 5px;
 }

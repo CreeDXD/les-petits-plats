@@ -22,12 +22,13 @@ prepa-algo:
 }
 
 <!-- Où j'en suis: 
+    --ajouter carte tag au click
     --déroulement des filtres
     --algo recherche principale mettre à jour les filtres
     --plus ou moins fini le css 
 -->
 <!-- problèmes:
-    -- quand je déroule filtre et que je commence une recherche le filtre se reenroule
+    -- quand je déroule filtre et que je commence une recherche le filtre se reenroule 
     --les cartes recettes on pas toutes les mêmes dimentions
     -- quand on reduit la taille de l'ecran le texte dépasse de la carte
 -->
