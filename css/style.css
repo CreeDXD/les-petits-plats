@@ -93,7 +93,7 @@ input[type="search"] {
 .appareils .filtre input[type="search"]{
     background-color: #68D9A4;
 }
-.ustensiles .filtre input[type="search"]{
+.ustensils .filtre input[type="search"]{
     background-color: #ED6454;
 }
 
@@ -123,6 +123,10 @@ input[type="search"] {
     background-color: #E7E7E7;
     border-radius: 5px;
 }
+.filtre_container{
+    position: relative;
+}
+
 .ul_filtres_contener{
     display: none;
 }
@@ -157,22 +161,28 @@ input[type="search"] {
     background-color: #68D9A4;
     padding:10px;
 }
-.ustensiles{
+.ustensils{
     color: #FFFFFF;
     background-color: #ED6454;
     padding:10px;
 }
+.petit_filtre_container{
+    flex-wrap:wrap;
+}
 
 .petit_filtre{
     width: auto;
-    background-color: #3282F7;
+    /* background-color: #3282F7; */
     color: #FFFFFF;
     font-family: "lato",sans-serif;
     font-weight: 700;
     padding-left: 18px;
     padding-right: 18px;
     border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom:5px;
 }
+
 .petit_filtre p{
     margin: 13px;
 }

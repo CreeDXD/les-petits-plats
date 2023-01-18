@@ -1,143 +1,245 @@
 class algoRecherche{
-    static init(){
-        let filtrePrincipale  = document.querySelector('.input_search_principal')
-        filtrePrincipale.addEventListener('keyup', e=>{
-
-            let filtrePrincipaleValue = filtrePrincipale.value
-            new algoRecherche(filtrePrincipaleValue)
-        })
-    }
-   
-    constructor(filtrePrincipaleValue){
+    
+    constructor(){
         this.recette = document.querySelectorAll('.recette')
-        this.filterWrapperIngredient = document.querySelector('.ingredients')
-        this.filterWrapperAppareil = document.querySelector('.appareils')
-        this.filterWrapperUstensils = document.querySelector('.ustensiles')
-        this.algoRecherchePrincipale(filtrePrincipaleValue)
-        this.algoRechercheMajFiltreIngredients()
-        this.algoRechercheMajFiltreAppareils()
-        this.algoRechercheMajFiltreUstensils()
     }
 
-    algoRecherchePrincipale(filtrePrincipaleValue){
-        let rexfiltrePrincipaleValue
-        let rexfiltreIngredientValue
+    // algo pour mettre à jour les recettes avec l'input filtre ingredient
+    algoRechercheIngredient(filtrePrincipaleValue){
 
-        if(filtrePrincipaleValue.length >= 3 ){
-            for(const element of this.recette){
-                let testPrincipale = false
-                // verification titre recette
-                const valuePrincipaleRecette = element.querySelector(".recette_entete > h2").innerHTML
-                rexfiltrePrincipaleValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(valuePrincipaleRecette))
-                if(rexfiltrePrincipaleValue == true){
-                    testPrincipale = true
-                }
+        //déclaration les variables
+        let rexfiltreIngredientValue 
+        let restElement = []
+        let i = 0
+
+        for(const element of this.recette){
+            let testPrincipale = false
+
+            // seulement parmis les recettes qui sont affiché
+            if(window.getComputedStyle(element).display == 'block'){ 
 
                 // verification ingredients recette
                 const valueIngredientRecette = element.querySelectorAll(".recette_ingredient > ul> li")
                 for(const ele of valueIngredientRecette){
                     rexfiltreIngredientValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(ele.getAttribute('name')))
+                    
                     if(rexfiltreIngredientValue == true){
                         testPrincipale = true
-                    }    
-                                       
-                }                
-                
-                // verification descriptions recette
-                const valueDescriptionRecette = element.querySelector(".recette_info > p").innerHTML    
-                rexfiltreIngredientValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(valueDescriptionRecette))
-                if(rexfiltreIngredientValue == true){
-                    testPrincipale = true
-                } 
-
-                //on enleve les elements qui ne sont pas dans la recherche
-                if( testPrincipale != true ){
-                    element.remove()
+                    }   
+                    
+                    if( testPrincipale != true ){
+                        element.style.display = 'none'
+                    }      
+                    if(testPrincipale == true){
+                        element.style.display = 'block'
+                        restElement[i] = element
+                        i++
+                    }                                    
                 }  
-                 
             }
         }
-        // on enleve tout les info du filtre ingredient, appareil et ustensils
-        const ingredientsRemove = document.querySelector('.ingredients > ul')        
-        const appareilsRemove = document.querySelector('.appareils > ul')        
-        const ustensilsRemove = document.querySelector('.ustensiles > ul')        
-        ingredientsRemove.remove()
-        appareilsRemove.remove()
-        ustensilsRemove.remove()
+        return restElement
     }
 
-    // algo pour mettre à jour les filtres ingredients appareils et ustensils
-    algoRechercheMajFiltreIngredients(){  
+    // algo pour mettre à jour les recettes avec l'input filtre appareils
+    algoRechercheAppareils(filtrePrincipaleValue){
+
+        //déclaration les variables
+        let rexfiltreAppareilsValue 
+        let restElement = []
+        let i = 0
+
+        for(const element of this.recette){
+            let testPrincipale = false
+
+            // seulement parmis les recettes qui sont affiché
+            if(window.getComputedStyle(element).display == 'block'){ 
+
+                // verification appareils recette
+                const valueAppareilsRecette = element.querySelectorAll(".appliance_info")
+                for(const ele of valueAppareilsRecette){
+                    rexfiltreAppareilsValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(ele.innerHTML))
+                    
+                    if(rexfiltreAppareilsValue == true){
+                        testPrincipale = true
+                    }   
+                    
+                    if( testPrincipale != true ){
+                        element.style.display = 'none'
+                    }      
+                    if(testPrincipale == true){
+                        element.style.display = 'block'
+                        restElement[i] = element
+                        i++
+                    }                                    
+                }  
+            }
+        }
+        return restElement
+    }
+
+    // algo pour mettre à jour les recettes avec l'input filtre ustensils
+    algoRechercheUstensils(filtrePrincipaleValue){
+
+        //déclaration les variables
+        let rexfiltreUstensilsValue 
+        let restElement = []
+        let i = 0
+
+        for(const element of this.recette){
+            let testPrincipale = false
+            
+            // seulement parmis les recettes qui sont affiché
+            if(window.getComputedStyle(element).display == 'block'){ 
+
+                // verification ustensils recette
+                const valueUstensilsRecette = element.querySelectorAll(".ustensils_info > p")
+                for(const ele of valueUstensilsRecette){
+                    rexfiltreUstensilsValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(ele.innerHTML))
+                    
+                    if(rexfiltreUstensilsValue == true){
+                        testPrincipale = true
+                    }   
+                    
+                    if( testPrincipale != true ){
+                        element.style.display = 'none'
+                    }      
+                    if(testPrincipale == true){
+                        element.style.display = 'block'
+                        restElement[i] = element
+                        i++
+                    }                                    
+                }  
+            }
+        }
+        return restElement
+    }
+
+    // algo pour mettre à jour les recettes avec l'input principale
+    algoRecherchePrincipale(filtrePrincipaleValue){
+
+        //déclare les variables
+        let rexfiltrePrincipaleValue
+        let rexfiltreIngredientValue 
+        let rexfiltreDescriptionValue 
+        let restElement = []
+        let i = 0
         
-        //on cree le tableau des ingredients
-        let ingredientsElement = document.querySelectorAll('.recette_ingredient > ul >li ')
+        for(const element of this.recette){
+            let testPrincipale = false
+
+            // verification titre recette
+            const valuePrincipaleRecette = element.querySelector(".recette_entete > h2").innerHTML
+            rexfiltrePrincipaleValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(valuePrincipaleRecette))
+            if(rexfiltrePrincipaleValue == true){
+                testPrincipale = true
+            }
+
+            // verification ingredients recette
+            const valueIngredientRecette = element.querySelectorAll(".recette_ingredient > ul> li")
+            for(const ele of valueIngredientRecette){
+                rexfiltreIngredientValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(ele.getAttribute('name')))
+                if(rexfiltreIngredientValue == true){
+                    testPrincipale = true
+                }                                           
+            }                
+            
+            // verification descriptions recette
+            const valueDescriptionRecette = element.querySelector(".recette_info > p").innerHTML    
+            rexfiltreDescriptionValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(valueDescriptionRecette))
+            if(rexfiltreDescriptionValue == true){
+                testPrincipale = true
+            } 
+
+            //on cache les elements qui ne sont pas dans la recherche à partir de 3 entrées
+            if(filtrePrincipaleValue.length >= 3 ){
+                if( testPrincipale != true ){
+                    element.style.display = 'none'
+                }
+            }            
+             
+            if(testPrincipale == true){
+                element.style.display = 'block'
+                restElement[i] = element
+                i++
+            }    
+        }
+        return restElement
+    }
+
+    // algo pour mettre à jour les filtres ingredients
+    algoRechercheMajFiltreIngredients(restElement){  
+        console.log('pierre')
+        // creation du tableau de tout les ingredients des recettes restantes
         let tabIngredients = []
         let i = 0
-        for(const element of ingredientsElement){
-            tabIngredients[i] = element.getAttribute('name')
-            i++
+
+        for(const ele of restElement){
+            let ingredients = ele.querySelectorAll('li')
+            for(const e of ingredients){
+                tabIngredients[i] = e.getAttribute('name')
+                i++
+            }
         }
+
+        // on enleve les doublons et on tris par ordre alphabetique
         let tabIngredientsFiltered = tabIngredients.filter(
             (ele, index) => tabIngredients.indexOf(ele) == index
         ).sort()
         
-        let wrapperUlIngredient = document.createElement('ul')
-        wrapperUlIngredient.setAttribute('class','ul_filtres')
-        this.filterWrapperIngredient.appendChild(wrapperUlIngredient)
-        for(const element of tabIngredientsFiltered){
-            let data = new Filtres_Model(element)
-            let Template = new FilterCard(data)            
-            wrapperUlIngredient.appendChild(Template.createFilterCard())
-        }
+        new majFiltreRecherchePrincipale(tabIngredientsFiltered, '.ingredients')
+        return tabIngredientsFiltered
     }
 
-    algoRechercheMajFiltreAppareils(){  
+    // algo pour mettre à jour les filtres appareils
+    algoRechercheMajFiltreAppareils(restElement){  
         
-        //on cree le tableau des appareils
-        let appareilsElement = document.querySelectorAll('.appliance_info')
-
+        //on cree le tableau des appareils des recettes restantes
         let tabAppareils = []
         let i = 0
-        for(const element of appareilsElement){
-            tabAppareils[i] = element.innerHTML
-            i++
+
+        for(const ele of restElement){
+            
+            let appareils = ele.querySelectorAll('.appliance_info')
+            for(const e of appareils){
+
+                tabAppareils[i] = e.innerHTML
+                i++
+            }
         }
+        
+        // on enleve les doublons et on tris par ordre alphabetique
         let tabAppareilsFiltered = tabAppareils.filter(
             (ele, index) => tabAppareils.indexOf(ele) == index
         ).sort()
         
-        let wrapperUlAppareil = document.createElement('ul')
-        wrapperUlAppareil.setAttribute('class','ul_filtres')
-        this.filterWrapperAppareil.appendChild(wrapperUlAppareil)
-        for(const element of tabAppareilsFiltered){
-            let data = new Filtres_Model(element)
-            let Template = new FilterCard(data)            
-            wrapperUlAppareil.appendChild(Template.createFilterCard())
-        }
+        new majFiltreRecherchePrincipale(tabAppareilsFiltered, '.appareils')
+        return tabAppareilsFiltered
     }
 
-    algoRechercheMajFiltreUstensils(){  
+    // algo pour mettre à jour les filtres ustensils
+    algoRechercheMajFiltreUstensils(restElement){  
         
         //on cree le tableau des appareils
-        let ustensilsElement = document.querySelectorAll('.ustensils_info > p')
         let tabUstensils = []
         let i = 0
-        for(const element of ustensilsElement){
-            tabUstensils[i] = element.innerHTML
-            i++
+
+        for(const element of restElement){
+            let ustensilsElement = element.querySelectorAll('.ustensils_info > p')
+            for(const e of ustensilsElement){
+
+                tabUstensils[i] = e.innerHTML
+                i++
+            }
         }
+
+        // on enleve les doublons et on tris par ordre alphabetique
         let tabUstensilsFiltered = tabUstensils.filter(
             (ele, index) => tabUstensils.indexOf(ele) == index
         ).sort()
         
-        let wrapperUlUstensils = document.createElement('ul')
-        wrapperUlUstensils.setAttribute('class','ul_filtres')
-        this.filterWrapperUstensils.appendChild(wrapperUlUstensils)
-        for(const element of tabUstensilsFiltered){
-            let data = new Filtres_Model(element)
-            let Template = new FilterCard(data)            
-            wrapperUlUstensils.appendChild(Template.createFilterCard())
-        }
+        new majFiltreRecherchePrincipale(tabUstensilsFiltered, '.ustensils')
+        return tabUstensilsFiltered
     }
     
     //transfrom une chaine de charactère pour quel soit en minuscule et sans accent
