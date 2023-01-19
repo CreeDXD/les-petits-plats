@@ -30,45 +30,66 @@ class TagCard{
 
         // retirer un tag
         closeTag.addEventListener('click', e =>{
-            let alltag = document.querySelectorAll('.petit_filtre > p')
-            for(const element of alltag){
-                let recette = document.querySelectorAll('.recette')
-                for(const e of recette){
-                    e.style.display = 'block'
+            let alltag = document.querySelectorAll('.petit_filtre')
+            let recette = document.querySelectorAll('.recette')
+
+            let tabAllTag = []
+            let i = 0
+            // on recupère la valeur à l'interieur de la balise p
+            for(const ele of alltag){
+                tabAllTag[i] = {
+                    key:ele.querySelector('i').getAttribute('name'), 
+                    value:ele.querySelector('p').innerHTML
                 }
+                i++
+            }
+            
+            // on enlève le tag selectioné du tableau
+            for(let i = 0; i < tabAllTag.length; i++){
+                if(tabAllTag[i].value === this.tagName){
+                    tabAllTag.splice(i,1)
+                }
+            }
+            for(let e of tabAllTag){
+                console.log(e)
+            }
 
-                let resetRecherche = new algoRecherche()
+            // on remet toute les recettes en display
+            for(const e of recette){
+                e.style.display = 'block'
+            }
+            let resetRecherche = new algoRecherche()
+            let filtrePrincipaleValue = document.querySelector('.input_search_principal').value
+            let recetteRecherchePrincipale = resetRecherche.algoRecherchePrincipale(filtrePrincipaleValue)
+            let tabIngredients, tabAppareils, tabUstensils
 
-                let filtrePrincipaleValue = document.querySelector('.input_search_principal').value
-                let recetteRecherchePrincipale = resetRecherche.algoRecherchePrincipale(filtrePrincipaleValue)
-
+            //on affine les recettes avec tout les tags sauf celui enlevé
+            for(const element of tabAllTag){
                 let resetMajTag
-                if(element.innerHTML != this.tagName){
-                    
-
-                    if(this.filtres == 'ingredients'){
-                        resetMajTag =  resetRecherche.algoRechercheIngredient(element.innerHTML)
-                    }
-                    else if(this.filtres == 'appareils'){
-                        resetMajTag = resetRecherche.algoRechercheAppareils(element.innerHTML)
-                    }
-                    else{
-                        resetMajTag =  resetRecherche.algoRechercheUstensils(element.innerHTML)
-                    }
-                    
+                if(element.key == 'ingredients'){
+                    resetMajTag =  resetRecherche.algoRechercheIngredient(element.value)
                 }
-                if(alltag.length == 1){
-                    let tabIngredients = resetRecherche.algoRechercheMajFiltreIngredients(recetteRecherchePrincipale)
-                    let tabAppareils = resetRecherche.algoRechercheMajFiltreAppareils(recetteRecherchePrincipale)
-                    let tabUstensils = resetRecherche.algoRechercheMajFiltreUstensils(recetteRecherchePrincipale)
+                else if(element.key == 'appareils'){
+                    resetMajTag = resetRecherche.algoRechercheAppareils(element.value)
                 }
                 else{
-                    let tabIngredients = resetRecherche.algoRechercheMajFiltreIngredients(resetMajTag)
-                    let tabAppareils = resetRecherche.algoRechercheMajFiltreAppareils(resetMajTag)
-                    let tabUstensils = resetRecherche.algoRechercheMajFiltreUstensils(resetMajTag)
-                }
+                    resetMajTag =  resetRecherche.algoRechercheUstensils(element.value)
+                }  
+                tabIngredients = resetRecherche.algoRechercheMajFiltreIngredients(resetMajTag)
+                tabAppareils = resetRecherche.algoRechercheMajFiltreAppareils(resetMajTag)
+                tabUstensils = resetRecherche.algoRechercheMajFiltreUstensils(resetMajTag)
+            
                 
             }
+            if(tabAllTag.length == '0'){
+                tabIngredients = resetRecherche.algoRechercheMajFiltreIngredients(recetteRecherchePrincipale)
+                tabAppareils = resetRecherche.algoRechercheMajFiltreAppareils(recetteRecherchePrincipale)
+                tabUstensils = resetRecherche.algoRechercheMajFiltreUstensils(recetteRecherchePrincipale)
+            }
+            //recuperation des tableaux 
+            let appPrincipal = new App()
+            appPrincipal.algoRechercheFiltres(tabIngredients,tabAppareils,tabUstensils)
+            
             $wrapper.remove()
         })
         return $wrapper

@@ -23,6 +23,7 @@ prepa-algo:
 
 
 <!-- Où j'en suis: 
+    --changer les sort() et index() pour des boucles natives
     --lors de la fermeture d'un tag l'interface doit se mettre à jour
     --lors de la creation d'un tag l'interface doit se mettre à jour 
         *ajouter rechercheAlgo class avec addevent au clique du tag*

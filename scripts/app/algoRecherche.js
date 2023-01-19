@@ -22,10 +22,9 @@ class algoRecherche{
                 const valueIngredientRecette = element.querySelectorAll(".recette_ingredient > ul> li")
                 for(const ele of valueIngredientRecette){
                     rexfiltreIngredientValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(ele.getAttribute('name')))
-                    
-                    if(rexfiltreIngredientValue == true){
+                    if(filtrePrincipaleValue == ele.getAttribute('name')){
                         testPrincipale = true
-                    }   
+                    }
                     
                     if( testPrincipale != true ){
                         element.style.display = 'none'
@@ -45,7 +44,6 @@ class algoRecherche{
     algoRechercheAppareils(filtrePrincipaleValue){
 
         //déclaration les variables
-        let rexfiltreAppareilsValue 
         let restElement = []
         let i = 0
 
@@ -58,9 +56,8 @@ class algoRecherche{
                 // verification appareils recette
                 const valueAppareilsRecette = element.querySelectorAll(".appliance_info")
                 for(const ele of valueAppareilsRecette){
-                    rexfiltreAppareilsValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(ele.innerHTML))
                     
-                    if(rexfiltreAppareilsValue == true){
+                    if(filtrePrincipaleValue == ele.innerHTML){
                         testPrincipale = true
                     }   
                     
@@ -82,7 +79,6 @@ class algoRecherche{
     algoRechercheUstensils(filtrePrincipaleValue){
 
         //déclaration les variables
-        let rexfiltreUstensilsValue 
         let restElement = []
         let i = 0
 
@@ -95,9 +91,8 @@ class algoRecherche{
                 // verification ustensils recette
                 const valueUstensilsRecette = element.querySelectorAll(".ustensils_info > p")
                 for(const ele of valueUstensilsRecette){
-                    rexfiltreUstensilsValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(ele.innerHTML))
                     
-                    if(rexfiltreUstensilsValue == true){
+                    if(filtrePrincipaleValue == ele.innerHTML){
                         testPrincipale = true
                     }   
                     
@@ -169,7 +164,6 @@ class algoRecherche{
 
     // algo pour mettre à jour les filtres ingredients
     algoRechercheMajFiltreIngredients(restElement){  
-        console.log('pierre')
         // creation du tableau de tout les ingredients des recettes restantes
         let tabIngredients = []
         let i = 0

@@ -18,8 +18,8 @@ class majFiltreRechercheFiltre{
                 compt++
             }
             let filtreValue = filtreInput.value
+            
             //  suppression des ingredients du tableau
-
             const filtresElementsToRemove = document.querySelector(`${infofiltre} > .ul_filtres_contener > .ul_filtres`)
             filtresElementsToRemove.remove()
             
@@ -39,6 +39,7 @@ class majFiltreRechercheFiltre{
             let $wrapper = document.querySelector(`${infofiltre} > .ul_filtres_contener`)
             let wrapperUl = document.createElement('ul')
             wrapperUl.setAttribute('class','ul_filtres')
+            wrapperUl.style.display = 'block'
             $wrapper.appendChild(wrapperUl)
             for(const element of majTab){
                 let data = new Filtres_Model(element)

@@ -28,7 +28,10 @@ class App {
         let filtrePrincipale  = document.querySelector('.input_search_principal')
         filtrePrincipale.addEventListener('keyup', e=>{
             let filtrePrincipaleValue = filtrePrincipale.value
-            
+            if(filtrePrincipaleValue != ''){
+                let alltag = document.querySelector('.petit_filtre_container')
+                alltag.innerHTML = ''
+            }
             let newRecherche = new algoRecherche()
             let recetteRecherche = newRecherche.algoRecherchePrincipale(filtrePrincipaleValue)
             let tabIngredients = newRecherche.algoRechercheMajFiltreIngredients(recetteRecherche)
@@ -50,15 +53,18 @@ class App {
             document.querySelector('.ustensils > .ul_filtres_contener')
         ] 
         const $wrapper = document.querySelector('.petit_filtre_container')
-        let testTag = false
+        
 
         for(const element of tabfiltres){
             element.addEventListener('click', e => {
                 let alltag = document.querySelectorAll('.petit_filtre > p')
+                let testTag = false
                 for(const tagAfficher of alltag){
+                    console.log(testTag,tagAfficher)
                     if(tagAfficher.innerHTML == e.target.innerHTML.trim()){
                         testTag = true
                     }
+                    
                 }
 
                 let filtres = element.parentElement.classList[1]
@@ -84,7 +90,10 @@ class App {
                         let tabIngredients = newRecherche.algoRechercheMajFiltreIngredients(recetteRecherche)
                         let tabAppareils = newRecherche.algoRechercheMajFiltreAppareils(recetteRecherche)
                         let tabUstensils = newRecherche.algoRechercheMajFiltreUstensils(recetteRecherche)
-
+                        
+                        //recuperation des tableaux 
+                        this.algoRechercheFiltres(tabIngredients,tabAppareils,tabUstensils)
+            
                         // affichage du tag
                         let Template = new TagCard(selectedElement,filtres)
                         $wrapper.appendChild(Template.createTagCard())
@@ -175,10 +184,15 @@ class App {
         chevronDown.addEventListener('click', e =>{
 
             let ul_filtres_contener = document.querySelector(`${data} > .ul_filtres_contener`)             
-
+            let ul_filtres_contener_children = document.querySelector(`${data} > .ul_filtres_contener > .ul_filtres`)             
+            
+            // on affiche le contener du filtre et on dispose le filtre en 'grid'
+            ul_filtres_contener_children.style.display = "grid"
             container_recette.style.marginTop = "150px"
             filtre_container.style.position = "absolute"
             ul_filtres_contener.style.display = "block"
+
+            // on enleve le chevron de déroulement et on affiche le chevron pour enrouler
             chevronUp.style.display = "block"
             chevronDown.style.display = "none"
 
@@ -196,9 +210,12 @@ class App {
 
             let ul_filtres_contener = document.querySelector(`${data} > .ul_filtres_contener`) 
             
+            // on cache le container du filtre pour masquer le container
             container_recette.style.marginTop = "0px"
             filtre_container.style.position = "relative"
             ul_filtres_contener.style.display = "none"
+
+            // on enleve le chevron de déroulement et on affiche le chevron pour enrouler
             chevronUp.style.display = "none"
             chevronDown.style.display = "block"
 

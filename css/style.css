@@ -107,6 +107,9 @@ input[type="search"] {
 .filtre .fa-chevron-up{
     display: none;
 }
+.fa-chevron-up, .fa-chevron-down{
+    cursor: pointer;
+}
 
 .container_space{
     margin-top:20px;
@@ -120,6 +123,7 @@ input[type="search"] {
 
 .recette{
     width: 100%;
+    /* max-width: 340px; */
     background-color: #E7E7E7;
     border-radius: 5px;
 }
@@ -143,6 +147,7 @@ input[type="search"] {
     font-size: 18px;
     font-family: 'Lato', sans-serif;
     font-weight:400;
+    cursor: pointer;
 }
 
 .filtres_options{
@@ -190,12 +195,13 @@ input[type="search"] {
 .petit_filtre i{
     margin: 13px;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .recettes_container{
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-column-gap: 50px;
+    grid-template-columns: repeat(3, 30%);
+    grid-column-gap: 5%;
     grid-row-gap: 50px;
 }
 
