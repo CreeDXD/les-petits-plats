@@ -2,6 +2,8 @@ class algoRecherche{
     
     constructor(){
         this.recette = document.querySelectorAll('.recette')
+        let messageErreur = new App()
+        messageErreur.messageErreur()
     }
 
     // algo pour mettre à jour les recettes avec l'input filtre ingredient

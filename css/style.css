@@ -264,3 +264,11 @@ input[type="search"] {
 .display_none{
     display:none;
 }
+
+#messageErreur{
+    display: none;
+    color:#D04F4F;
+    font-family: 'lato',sans-serif;
+    font-weight: 700;
+    font-size: large;
+}

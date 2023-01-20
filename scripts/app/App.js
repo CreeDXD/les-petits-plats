@@ -13,6 +13,37 @@ class App {
         this.liste = []
     }
 
+
+    messageErreur(){
+        const recette = document.querySelectorAll('.recette')
+        let messageErreur = document.getElementById('messageErreur')
+        
+        let observer = new MutationObserver(mutations => {
+        let allHidden = true
+        for (let element of recette) {
+            if (getComputedStyle(element).display !== 'none') {
+                allHidden = false
+                break
+            }
+        }
+        if (allHidden) {
+            messageErreur.style.display = 'block'
+        }
+        else{
+            messageErreur.style.display = 'none'
+        }
+        });
+
+        for (let element of recette) {
+            observer.observe(element, { attributes: true, attributeFilter: ['style'] })
+        }
+
+        
+        
+        
+     
+    }
+
      // on affiche les recettes
      recette(){
 
