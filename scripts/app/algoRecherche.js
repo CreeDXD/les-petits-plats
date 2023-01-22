@@ -149,7 +149,6 @@ class algoRecherche{
             rexfiltreDescriptionValue = new RegExp( this.transformString(filtrePrincipaleValue) ).test(this.transformString(valueDescriptionRecette))
             if(rexfiltreDescriptionValue == true){
                 testPrincipale = true
-                console.log(testPrincipale)
             } 
 
             //on cache les éléments qui ne sont pas dans la recherche à partir de 3 entrées
@@ -163,7 +162,6 @@ class algoRecherche{
                 element.style.display = 'block'
                 restElement[i] = element
                 i++
-                console.log(i)
             }    
         })
         return restElement

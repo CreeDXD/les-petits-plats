@@ -17,26 +17,17 @@ class App {
     messageErreur(){
         const recette = document.querySelectorAll('.recette')
         let messageErreur = document.getElementById('messageErreur')
-
-        let observer = new MutationObserver((mutations) => {
-        let allHidden = true
-        mutations.forEach((mutation) => {
-            if (mutation.target.style.display !== 'none') {
-            allHidden = false
+        
+        let observer = new MutationObserver(mutations => {
+            let allHidden = Array.from(recette).every(element => getComputedStyle(element).display === 'none')
+            if (allHidden) {
+                messageErreur.style.display = 'block'
+            } else {
+                messageErreur.style.display = 'none'
             }
         })
-        if (allHidden) {
-            messageErreur.style.display = 'block'
-        } else {
-            messageErreur.style.display = 'none'
-        }
-        })
-
-        recette.forEach((element) => {
-            observer.observe(element, { attributes: true, attributeFilter: ['style'] })
-        })
-
-    }
+        Array.from(recette).forEach(element => observer.observe(element, { attributes: true, attributeFilter: ['style'] }))
+}
 
      // on affiche les recettes
      recette(){
