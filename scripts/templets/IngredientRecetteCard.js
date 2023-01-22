@@ -7,16 +7,12 @@ class RecetteIngredientCard {
     }
 
     createRecetteIngredientCard() {
-        const $wrapper = document.createElement('ul')
         let containerIngredient = document.createElement('li')
-        containerIngredient.innerHTML = this._ingredient
+        containerIngredient.setAttribute('name',this._ingredient)
+        containerIngredient.innerHTML = this._ingredient+ ' '
                     
-        $wrapper.appendChild(containerIngredient)
-
-        containerIngredient.textContent += ' '
-
         if(this._quantity != undefined){
-            containerIngredient.textContent += this._quantity+' '
+            containerIngredient.innerHTML += this._quantity + ' '
         }       
 
 
@@ -24,8 +20,8 @@ class RecetteIngredientCard {
             if(this._unit == 'grammes'){
                 this._unit = 'g'
             }
-            containerIngredient.textContent += this._unit
+            containerIngredient.innerHTML += this._unit
         }
-        return $wrapper
+        return containerIngredient
     }
 }
