@@ -93,7 +93,7 @@ input[type="search"] {
 .appareils .filtre input[type="search"]{
     background-color: #68D9A4;
 }
-.ustensiles .filtre input[type="search"]{
+.ustensils .filtre input[type="search"]{
     background-color: #ED6454;
 }
 
@@ -106,6 +106,9 @@ input[type="search"] {
 
 .filtre .fa-chevron-up{
     display: none;
+}
+.fa-chevron-up, .fa-chevron-down{
+    cursor: pointer;
 }
 
 .container_space{
@@ -120,14 +123,22 @@ input[type="search"] {
 
 .recette{
     width: 100%;
+    /* max-width: 340px; */
     background-color: #E7E7E7;
     border-radius: 5px;
 }
+.filtre_container{
+    position: relative;
+}
+
+.ul_filtres_contener{
+    display: none;
+}
 
 .ul_filtres{
-    display: none;
+    display: grid;
     grid-template-columns: repeat(3, 200px);
-    grid-column-gap: 100px;
+    grid-column-gap: 20px;
     grid-row-gap: 5px;
 }
 
@@ -136,9 +147,11 @@ input[type="search"] {
     font-size: 18px;
     font-family: 'Lato', sans-serif;
     font-weight:400;
+    cursor: pointer;
 }
 
 .filtres_options{
+    height: 10%;
     margin-right:50px;
     border-radius: 5px;
 }
@@ -153,22 +166,28 @@ input[type="search"] {
     background-color: #68D9A4;
     padding:10px;
 }
-.ustensiles{
+.ustensils{
     color: #FFFFFF;
     background-color: #ED6454;
     padding:10px;
 }
+.petit_filtre_container{
+    flex-wrap:wrap;
+}
 
 .petit_filtre{
     width: auto;
-    background-color: #3282F7;
+    /* background-color: #3282F7; */
     color: #FFFFFF;
     font-family: "lato",sans-serif;
     font-weight: 700;
     padding-left: 18px;
     padding-right: 18px;
     border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom:5px;
 }
+
 .petit_filtre p{
     margin: 13px;
 }
@@ -176,12 +195,13 @@ input[type="search"] {
 .petit_filtre i{
     margin: 13px;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .recettes_container{
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-column-gap: 50px;
+    grid-template-columns: repeat(3, 30%);
+    grid-column-gap: 5%;
     grid-row-gap: 50px;
 }
 
@@ -239,4 +259,16 @@ input[type="search"] {
     padding-right: 10px;
     font-family: 'lato',sans-serif;
     font-weight: 700;
+}
+
+.display_none{
+    display:none;
+}
+
+#messageErreur{
+    display: none;
+    color:#D04F4F;
+    font-family: 'lato',sans-serif;
+    font-weight: 700;
+    font-size: large;
 }

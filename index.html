@@ -34,19 +34,15 @@
                 >
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <!-- les filtres selectionné -->
-            <div class="petit_filtre_container element_space display_flex_row">
-                <div class="petit_filtre display_flex_row">
-                    <p>Coco</p>
-                    <i class="fa-regular fa-circle-xmark"></i>
-                </div>
-                
-            </div>
+            
+            <!-- tags des filtres selectionné -->
+            <div class="petit_filtre_container element_space display_flex_row"></div>
+            
             <!-- les 3 differents types de filtres -->
             <div class="filtre_container element_space display_flex_row">
                 <div class="filtres_options ingredients">
                     <div class="filtre display_flex_row">
-                        <input type="search" placeholder="Ingredient">
+                        <input type="search" placeholder="Ingredient" class="ingredients_input">
                         <i class="fa-solid fa-chevron-up"></i>
                         <i class="fa-solid fa-chevron-down"></i>                    
                     </div>
@@ -54,14 +50,14 @@
                 </div>
                 <div class="filtres_options appareils">
                     <div class="filtre display_flex_row">
-                        <input type="search" placeholder="Appareils">
+                        <input type="search" placeholder="Appareils" class="appareils_input">
                         <i class="fa-solid fa-chevron-up"></i>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                 </div> 
-                <div class="filtres_options ustensiles">
+                <div class="filtres_options ustensils">
                     <div class="filtre display_flex_row">
-                        <input type="search" placeholder="Ustensiles">
+                        <input type="search" placeholder="ustensils" class="ustensils_input">
                         <i class="fa-solid fa-chevron-up"></i>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
@@ -71,6 +67,9 @@
 
         <!-- section cartes recettes -->
         <section class="recettes_container">
+            <p id="messageErreur">Aucune recette ne correspond à votre critère... 
+                vous pouvez chercher "tarte au pommes","poisson",etc.
+            </p>
         </section>
     </div>
     <!-- base de données avec les recettes, ingredient ... -->
@@ -78,11 +77,17 @@
 
     <!-- App  -->
     <script src="/scripts/app/App.js"></script>
+    <script src="/scripts/app/algoRecherche.js"></script>
+    <!-- <script src="/scripts/app/majFiltreRechercheFiltre.js"></script> -->
+    <!-- <script src="/scripts/app/majFiltreRecherchePrincipale.js"></script> -->
+    <script src="/scripts/app/filtre.js"></script>
+    <script src="/scripts/app/afficherRecette.js"></script>
 
     <!-- templets -->
     <script src="/scripts/templets/FilterCard.js"></script>
     <script src="/scripts/templets/RecetteCard.js"></script>
     <script src="/scripts/templets/IngredientRecetteCard.js"></script>
+    <!-- <script src="/scripts/templets/TagCard.js"></script> -->
 
     <!-- model -->
     <script src="/scripts/models/recette_model.js"></script>
